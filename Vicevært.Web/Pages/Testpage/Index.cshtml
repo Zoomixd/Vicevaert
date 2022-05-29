@@ -1,0 +1,35 @@
+﻿@page
+@model Vicevært.Web.Pages.Testpage.IndexModel
+@{
+}
+
+
+<section id="first" style="color: black">
+
+@foreach (var item in Model.maal)
+            {
+
+
+   <tr>
+                    <td>
+                        @item.StreetName
+                    </td>
+                    <td>
+                        @item.BuildingNumber
+                    <td>
+                        @item.CountryCode
+                    </td>
+                    <td>
+                        @item.SecondaryAddress
+                    </td>
+                    <td>
+                        @item.IsBookable
+                    </td>
+
+
+
+                </tr>
+
+}  
+
+</section>

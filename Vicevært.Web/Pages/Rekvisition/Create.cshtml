@@ -1,0 +1,80 @@
+﻿@page
+@using Vicevært.Domain.Entities
+@model Vicevært.Web.Pages.Rekvisition.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<br/>
+<br/>
+<h4>Rekvisitionsoprettelse</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+
+        <form method="post">
+                         
+@*            <label asp-for="Rekvisition.RekvisitionType" class="control-label">Rekvisitionstype</label>  
+            <input asp-for="Rekvisition.RekvisitionType" class="form-control" />*@
+
+
+           @* <select asp-for="Rekvisition.RekvisitionType" class="form-control">
+               @Html.DisplayFor(x => x.Rekvisition.RekvisitionType) eventuelt bruge som foreach
+                <option value="">Vælg type af opgave</option>
+                <option value="inputtet">teksten</option>
+                <option value="test">testeren</option>
+            <span asp-validation-for="Rekvisition.RekvisitionType" class="text-danger"></span>
+            </select>
+*@              
+
+
+@*            <select asp-for="Rekvisition.RekvisitionType" asp-items="Html.GetEnumSelectList<Rekvisition.Typer>()">
+    <option selected="selected" value="">Please select</option>
+</select>*@
+            
+            @Html.DropDownListFor(m => m.Rekvisition.RekvisitionType, 
+            new SelectList(Enum.GetValues(typeof(Rekvisition.Typer))), 
+            "Vælg Rekvisitionstype", new {style="width: 250px;"})
+
+
+            <br>
+            <br>
+                       <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Rekvisition.LejerId" class="control-label text-secondary">LejerId</label>
+                <input asp-for="Rekvisition.LejerId" class="form-control" />
+                <span asp-validation-for="Rekvisition.LejerId" class="text-danger"></span>
+
+
+                <label asp-for="Rekvisition.Kommentar" class="control-label text-secondary">Evt. kommentar til opgaven</label>
+                <input asp-for="Rekvisition.Kommentar" class="form-control" />
+                <span asp-validation-for="Rekvisition.Kommentar" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <br />
+            <input type="submit" value="Opret Rekvisition" class="btn btn-primary" />
+            </div>
+
+
+
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="/Index">Tilbage til forside</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+<style> 
+    h4{color:black;}
+
+</style>

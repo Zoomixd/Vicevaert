@@ -1,0 +1,49 @@
+﻿@page
+@model Vicevært.Web.Pages.Lejer.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/6216d7c3a8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/Style">
+
+
+
+</head>
+
+<h1>Lejere</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Lejer[0].FirstName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Lejer) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+                @Html.DisplayFor(modelItem => item.MiddleName)
+                @Html.DisplayFor(modelItem => item.LastName)
+                @Html.DisplayFor(modelItem => item.Email)
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+
+        </tr>
+}
+    </tbody>
+</table>
+

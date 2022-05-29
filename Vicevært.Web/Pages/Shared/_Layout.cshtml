@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Vicevært.Web</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Vicevært.Web.styles.css" asp-append-version="true" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/6216d7c3a8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/Style">
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <header>
+
+            <nav class="navbar navbar-expand-lg bg-white">
+        <div class="container">
+          <a class="navbar-brand" href="/Index">UNIK</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+
+
+
+
+            <ul class="navbar-nav ms-3"> 
+                                 <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Rekvisitioner
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="/Rekvisition/Create">Opret rekvisition</a></li>
+            <li><a class="dropdown-item" href="/Rekvisition">Registrer tid</a></li>
+          </ul>
+        </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="/Ejendom">Ejendomme</a>
+              </li>
+
+
+              
+
+                                 <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Lejemål
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="/Lejemaal">Se alle lejemål</a></li>
+            <li><a class="dropdown-item" href="/Booking">Book lejelejlighed</a></li>
+          </ul>
+            </li>
+
+
+                <li class="nav-item">
+                <a class="nav-link" href="/Lejer">Lejer</a>
+                </li> 
+
+
+            </ul>
+            <a href="/Login" class="btn btn ms-auto">Log ind</a>
+          </div>
+        </div>
+      </nav>
+
+
+
+
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer text-muted">
+        <div class="container">
+            &copy; 2022 - Vicevært.Web
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+<style> 
+.navbar-brand
+{
+color:white;
+}
+
+    body {
+        background-color: white;
+
+}
+
+.container {color:white;}
+</style>

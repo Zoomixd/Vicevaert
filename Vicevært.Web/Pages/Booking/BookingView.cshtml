@@ -1,0 +1,53 @@
+﻿@page
+@model Vicevært.Web.Pages.Booking.BookingViewModel
+@{
+}
+
+<section class="container-fluid" style="color:black">
+    <h3>Liste over bookings</h3>
+    <article>
+        <a asp-page="Create">Opret ny booking</a>
+    </article>
+
+    <article>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>
+                    <label asp-for="Bookings.First().Start"></label>
+                </th>
+                <th>
+                    <label asp-for="Bookings.First().Start"></label>
+                </th>
+                <th>
+                    <label>Action</label>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.Bookings)
+            {
+                <tr>
+                    <td>
+                        @item.BookingId
+                    </td>
+                    <td>
+                        @item.Start
+                    </td>
+                    <td>
+                        @item.Slut
+                    </td>
+                    <td>
+                        @item.LejemålId
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.BookingId">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.BookingId">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.BookingId">Delete</a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </article>
+</section>

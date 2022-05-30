@@ -24,6 +24,15 @@ namespace Vicevært.Web.Infrastructure
             await _client.PostAsync("https://localhost:7008/api/Booking", bookingDtoJson);
         }
 
+        async Task<BookingDto?> IBookingService.GetAsync(int id)
+        {
+            return await _client.GetFromJsonAsync<BookingDto?>($"https://localhost:7008/api/Booking/{id}");
+        }
+
+        async Task<IEnumerable<BookingDto>> IBookingService.GetAsync()
+        {
+            return await _client.GetFromJsonAsync<IEnumerable<BookingDto>>($"https://localhost:7008/api/Booking");
+        }
 
     }
 }

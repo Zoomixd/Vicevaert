@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,11 @@ namespace Vicevært.Infrastructure.RepositoriesImpl
         {
             _db.Bookings.Add(booking);
             await _db.SaveChangesAsync();
+        }
+
+        async Task<Domain.Entities.Booking> IBookingRepository.GetAsync(int id)
+        {
+            return await _db.Bookings.AsNoTracking().FirstOrDefaultAsync(a => a.BookingId == id) ?? throw new Exception("Booking not found");
         }
 
     }

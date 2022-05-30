@@ -30,11 +30,11 @@ builder.Services.AddScoped<ILejemaalQuery, LejemaalQuery>();
 builder.Services.AddScoped<ILejemaalRepository, LejemaalRepository>();
 builder.Services.AddScoped<ILejemaalRepository, LejemaalRepository>();
 builder.Services.AddScoped<ILejemaalDomainService, LejemaalDomainService>();
-//builder.Services.AddScoped<IBookingQuery, BookingQuery>();
+builder.Services.AddScoped<IBookingQuery, BookingQuery>();
 builder.Services.AddScoped<IBookingCommand, BookingCommand>();
 builder.Services.AddScoped<IBookingRepository, BookingRepository>();
 builder.Services.AddScoped<IBookingRepository, BookingRepository>();
-//builder.Services.AddScoped<IBookingDomainService, BookingDomainService>();
+builder.Services.AddScoped<IBookingDomainServices, BookingDomainService>();
 
 
 

@@ -3,33 +3,110 @@
 @{
 }
 
-<section class="container-fluid">
-    <h1>Bookings</h1>
-    <article>
-        <form method="post">
+<section class="container-fluid" style="color: black">
+
+
+
+    <article style="color: black">
+
+
+
+        <div class="container" style="color: black">
+  <div class="row">
+    <div class="col">
+            <br />
+    <br />
+    <h3>Opret booking af lejlighed</h3>
+    <br />
+    
+   <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Booking.Start" class="control-label"></label>
-                <input asp-for="Booking.Start" class="form-control"/>
+                <input asp-for="Booking.Start" class="form-control" style="width: 500px"/>
                 <span asp-validation-for="Booking.Start" class="text-danger"></span>
             </div>
+            <br>
             <div class="form-group">
                 <label asp-for="Booking.Slut" class="control-label"></label>
-                <input asp-for="Booking.Slut" class="form-control"/>
+                <input asp-for="Booking.Slut" class="form-control" style="width: 500px"/>
                 <span asp-validation-for="Booking.Slut" class="text-danger"></span>
             </div>
+            <br>
+@*            <div class="form-group">
+                <label asp-for="Booking.LejemålId" class="control-label"></label>
+                <input asp-for="Booking.LejemålId"  class="form-control"/>
+                <span asp-validation-for="Booking.LejemålId" class="text-danger"></span>
+            </div>*@
+
 
             <div class="form-group">
-                <label asp-for="Booking.LejemålId" class="control-label"></label>
-                <input asp-for="Booking.LejemålId" class="form-control"/>
-                <span asp-validation-for="Booking.LejemålId" class="text-danger"></span>
+                <label>Vælg lejemål</label><br />
+               <select asp-for="Booking.LejemålId" style="width:500px">
+               @Html.DisplayFor(x => x.Booking.LejemålId) eventuelt bruge som foreach
+               @foreach (var item in Model.Lejemaal)
+               {
+                   <option value="@item.LejemålId">@item.City, @item.Postcode</option>
+               }
+
+            <span asp-validation-for="Booking.LejemålId" class="text-danger"></span>
+            </select>
             </div>
 
 
 
+         @*   <select asp-for ="Booking.LejemålId" class="form-control">
+                
+                    @foreach (var item in Model.Lejemaal)
+                    {
+                        if (item.IsBookable == true)
+                        {
+                            <option value="Booking.LejemålId">
+                                @item.StreetName, @item.BuildingNumber, @item.SecondaryAddress
+                            </option>
+                        }
+                    }
+                </select>
+                *@
+
+                <br />
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary"/>
+                <input type="submit" value="Opret booking" class="btn btn-primary"/>
             </div>
         </form>
+
+    </div>
+    <div class="col">
+                  <br />
+    <br />
+    <h3>Liste over nuværende bookings</h3>
+    <br />
+
+     <table class="table">
+            <thead>
+            <tr>
+                <th>
+                    <label>Booking ID</label>
+                </th>
+
+                <th>
+                    <label>Start tidspunkt</label>
+                </th>
+                <th>
+                    <label>Slut tidspunkt</label>
+                </th>
+                <th>
+                    <label>Lejemål ID</label>
+                </th>
+
+
+            </tr>
+            </thead>
+    </div>
+  </div>
+
+
+     
     </article>
 </section>
+

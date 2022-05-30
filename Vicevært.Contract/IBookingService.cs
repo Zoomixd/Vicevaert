@@ -10,5 +10,7 @@ namespace Vicevært.Contract
     public interface IBookingService
     {
         Task CreateAsync(BookingDto bookingDto);
+        Task<BookingDto?> GetAsync(int id);
+        Task<IEnumerable<BookingDto>> GetAsync();
     }
 }
